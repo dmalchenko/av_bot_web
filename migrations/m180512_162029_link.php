@@ -15,6 +15,7 @@ class m180512_162029_link extends Migration
         $this->createTable('link', [
             'id' => $this->primaryKey(),
             'link' => $this->string(1024),
+            'link_name' => $this->string(256),
             'link_hash' => $this->bigInteger(),
             'status' => $this->smallInteger(1),
             'created_at' => $this->integer(),

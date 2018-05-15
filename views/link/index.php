@@ -25,9 +25,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-
                 'id',
-                'link',
+                [
+                    'attribute' => 'link',
+                    'value' => function (Link $model) {
+                        return \yii\helpers\StringHelper::truncate($model->link, 100);
+                    }
+                ],
+                [
+                    'attribute' => 'link_name',
+                    'value' => function (Link $model) {
+                        return $model->link_name;
+                    }
+                ],
                 [
                     'attribute' => 'status',
                     'value' => function (Link $model) {

@@ -14,6 +14,7 @@ use yii\db\ActiveRecord;
  *
  * @property int $id
  * @property string $link
+ * @property string $link_name
  * @property int $link_hash
  * @property int $status
  * @property int $created_at
@@ -42,7 +43,8 @@ class Link extends ActiveRecord
             [['link_hash', 'status', 'created_at', 'updated_at', 'expired_at'], 'default', 'value' => null],
             [['link_hash', 'status', 'created_at', 'updated_at', 'expired_at'], 'integer'],
             [['link'], 'string', 'max' => 1024],
-            [['link'], 'trim'],
+            [['link_name'], 'string', 'max' => 256],
+            [['link', 'link_name'], 'trim'],
             [['link'], 'url'],
             [['link'], function ($attribute) {
                 if (mb_strpos($this->$attribute, 'https://cars.av.by/search') !== 0)
@@ -90,6 +92,7 @@ class Link extends ActiveRecord
         return [
             'id' => 'ID',
             'link' => 'Link',
+            'link_name' => 'Name parser',
             'link_hash' => 'Link Hash',
             'status' => 'Status',
             'created_at' => 'Created At',
