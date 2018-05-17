@@ -18,6 +18,7 @@ class m180514_190816_CarLink extends Migration
             'av_id' => $this->integer(),
             'price_usd' => $this->integer(),
             'price_byn' => $this->integer(),
+            'image' => $this->string(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
         ]);
