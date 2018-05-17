@@ -27,9 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
                 'id',
                 [
+                    'format' => 'raw',
                     'attribute' => 'link',
                     'value' => function (Link $model) {
-                        return \yii\helpers\StringHelper::truncate($model->link, 100);
+                        $text = \yii\helpers\StringHelper::truncate($model->link, 50);
+                        return Html::a($text, $model->link, ['target' => '_blank']);
                     }
                 ],
                 [

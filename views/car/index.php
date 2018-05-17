@@ -24,8 +24,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'tableOptions'=>['class'=>'table table-striped table-bordered table-car'],
             'columns' => [
                 'id',
-                'link:url',
-                'av_id',
+                [
+                    'format' => 'raw',
+                    'attribute' => 'link',
+                    'value' => function (\app\models\CarLink $model) {
+                        $text = \yii\helpers\StringHelper::truncate($model->link, 100);
+                        return Html::a($text, $model->link, ['target' => '_blank']);
+                    }
+                ],
+                'created_at:datetime',
                 'price_usd',
                 'price_byn',
                 'image:image',
