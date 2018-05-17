@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'tableOptions'=>['class'=>'table table-striped table-bordered table-car'],
             'columns' => [
                 'id',
-                'link',
+                'link:url',
                 'av_id',
                 'price_usd',
                 'price_byn',
